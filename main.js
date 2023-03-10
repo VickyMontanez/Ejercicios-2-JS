@@ -1,10 +1,18 @@
 // Taller JavaScript 2
-//3.Construir el algoritmo para determinar el voltaje de un circuito a partir de la resistencia y la intensidad de corriente.
+//4. Construir el algoritmo que solicite el nombre y edad de 3 personas y determine el nombre de la persona con mayor edad.
 
-let r = Number(prompt("Ingresa el valor de la resistencia en Ohmnios: "));
-let i = Number(prompt("Ingresa el valor de la intensidad en Amperios: "))
+let nombres= [];
+let edades = [];
+let usu = {Nombre: nombres, Edad :edades};
+let indice;
+let mayor;
 
-let volt = r*i;
-console.log("La Resistencia del circuito es = ", r,"A");
-console.log("La Intensidad del circuito es =", i,"Ω");
-console.log("El Voltaje del circuito es ",volt,"V");
+for (let i = 1; i <4; i++){
+    nombres.push(prompt(`Ingresa ${i} el nombre:`));
+    edades.push(Number(prompt(`Ingresa ${i} la edad:`)));
+}
+
+indice = edades.indexOf(Math.max(...edades));
+mayor = Math.max(...edades);
+console.table(usu);
+console.log("La persona con mayor edad es",nombres[indice],`con ${mayor} años`);
