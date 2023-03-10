@@ -1,21 +1,16 @@
 // Taller JavaScript 2
-//Construir el algoritmo para un programa que ingrese tres notas de un alumno, si el promedio es menor o igual a 3.9 mostrar un mensaje "Estudie“, de lo contrario un mensaje que diga "becado"
-let notas = [];
-let promedio= 0;
+//2. Dado un número indicar si es par o impar y si es mayor de 10.
+let numero = Number(prompt("Ingresa cualquier número : "));
+let pm = numero%2;
 
-for (let i= 1; i< 4; i++){
-    notas.push(parseFloat(prompt(`Ingresa tu nota ${i}`)))
+if (pm==0){
+    console.log(`El numero que ingresaste ${numero} es PAR ✍(◔◡◔)`);
+}else {
+    console.log(`El numero que ingresaste ${numero} es IMPAR ✍(◔◡◔)`);
 };
-for(let i=0; i<3; i++){
-    promedio += notas[i]/3
+
+if (numero > 10){
+    console.log(`El numero ${numero} es MAYOR que 10 ≧◠‿◠≦✌`);
+}else{
+    console.log(`El numero ${numero} es MENOR que 10 ≧◠‿◠≦✌`);
 };
-
-console.log("Tus notas son: ",notas);
-console.log("Tu promedio es: ", promedio.toFixed(2));
-
-if (promedio <= 3.9){
-    console.log("Estudie (ㆆ_ㆆ)");
-} else{
-    console.log("Becado ʕ•́ᴥ•̀ʔっ")
-}
-
