@@ -1,16 +1,10 @@
 // Taller JavaScript 2
-//2. Dado un número indicar si es par o impar y si es mayor de 10.
-let numero = Number(prompt("Ingresa cualquier número : "));
-let pm = numero%2;
+//3.Construir el algoritmo para determinar el voltaje de un circuito a partir de la resistencia y la intensidad de corriente.
 
-if (pm==0){
-    console.log(`El numero que ingresaste ${numero} es PAR ✍(◔◡◔)`);
-}else {
-    console.log(`El numero que ingresaste ${numero} es IMPAR ✍(◔◡◔)`);
-};
+let r = Number(prompt("Ingresa el valor de la resistencia en Ohmnios: "));
+let i = Number(prompt("Ingresa el valor de la intensidad en Amperios: "))
 
-if (numero > 10){
-    console.log(`El numero ${numero} es MAYOR que 10 ≧◠‿◠≦✌`);
-}else{
-    console.log(`El numero ${numero} es MENOR que 10 ≧◠‿◠≦✌`);
-};
+let volt = r*i;
+console.log("La Resistencia del circuito es = ", r,"A");
+console.log("La Intensidad del circuito es =", i,"Ω");
+console.log("El Voltaje del circuito es ",volt,"V");
