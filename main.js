@@ -1,48 +1,30 @@
 // Taller JavaScript 2
-//5. Construir el algoritmo que lea por teclado dos números, si el primero es mayor al segundo informar su suma y diferencia, en caso contrario, informar el producto y la división del primero respecto al segundo.
+//6.Construir el algoritmo en Javascript para un programa para cualquier cantidad de estudiantes que lea el nombre, el sexo y la nota definitiva y halle al estudiante con la mayor nota y al estudiante con la menor nota y cuantos eran hombres y cuantos mujeres.
 
-let numeros =[]; 
+let nombres = [];
+let sexo = [];
+let notas = [];
+let alumnos= {Alumno:nombres, Sexo:sexo, Nota:notas};
 
-for (let i = 0; i <2; i++){
-     numeros.push(Number(prompt(`Ingresa ${i+1} número:`)));
-}
-
-mayorn= Math.max(...numeros)
-mayori = numeros.indexOf(Math.max(...numeros));
-
-if (mayori==0){
-    function add(arrNumbers) {
-        var resultado = arrNumbers.reduce(function(a, b) {
-          return a + b;
-        });
-        return resultado;
-      }
-
-      function sub(arrNumbers) {
-        var resultado = arrNumbers.reduce(function(a, b) {
-          return a - b;
-        });
-        return resultado;
-      }
-    console.log(`Tus números son ${numeros}`);
-    console.log(`El primer número ${mayorn} es el mayor entonces: `);
-    console.log("La suma  es: " + add(numeros));
-    console.log("La resta es: " + sub(numeros));
-} else if (mayori == 1){
-    function mul(arrNumbers) {
-        var resultado = arrNumbers.reduce(function(a, b) {
-          return a * b;
-        });
-        return resultado;
+function myFunction() {
+    let text = "Deseas agregar un alumno?";
+    while (confirm(text) == true) {
+        nombres.push(prompt("Agrega el nombre del alumno:"));
+        sexo.push(prompt("Agrega el sexo del alumno (F/M):"));
+        notas.push(Number(prompt("Agrega la nota definitiva del alumno:")))
     }
-    function div(arrNumbers) {
-        var resultado = arrNumbers.reduce(function(a, b) {
-          return a / b;
-        });
-        return resultado;
-    }
-    console.log(`Tus números son ${numeros}`);
-    console.log(`El segundo número ${mayorn} es el mayor entonces: `);
-    console.log("La multiplicación es: " + mul(numeros));
-    console.log("La division es: " + div(numeros));
+
+    let mayori = notas.indexOf(Math.max(...notas));
+    let mayorn = Math.max(...notas);
+    let menori = notas.indexOf(Math.min(...notas));
+    let menorn = Math.min(...notas);
+    
+    var repetidos = {};
+    sexo.forEach(function(numero){
+        repetidos[numero] = (repetidos[numero] || 0) + 1;});
+
+    console.table(alumnos);
+    console.log(`El estudiante ${nombres[mayori]} tiene la MAYOR nota : ${mayorn}`);
+    console.log(`El estudiante ${nombres[menori]} tiene la MENOR nota : ${menorn}`);
+    console.log(`En esta clase hay tantos estudiantes (MASCULINOS/FEMENINOS):`, repetidos);
 }
