@@ -1,29 +1,22 @@
 // Taller JavaScript 2
-/* 9.
-N atletas han pasado a finales en salto triple en los juegos
-olímpicos femenino de 2022. Diseñe un programa que pida por
-teclado los nombres de cada atleta finalista y a su vez, sus
-marcas del salto en metros. Informar el nombre de la atleta
-campeona que se quede con la medalla de oro y si rompió
-récord, reportar el pago que será de 500 millones. El récord
-esta en 15,50 metros. */
+/* 10.Desarrolle un programa cíclico que capture un dato
+numérico cada vez, y los vaya acumulando. El programa se
+detiene cuando el usuario digita un cero. El programa debe
+mostrar: LA SUMATORIA DE LOS VALORES, EL VALOR DEL
+PROMEDIO, CUÁNTOS VALORES FUERON DIGITADOS, MAYOR
+VALOR Y MENOR VALOR. */
 
-let nombre = [];
-let salto = [];
-let atleta = {Atleta: nombre, Marca: salto};
-function atletas(){
-    let text = "¿Deseas agregar alguna Atleta?";
-    while (confirm(text) == true){
-        nombre.push(prompt("¿Cuál es el nombre del Atleta?"));
-        salto.push(Number(prompt("¿Cuál fue su marca de salto?")));
-    };
-    let mayori = salto.indexOf(Math.max(...salto));
-    let mayors = Math.max(...salto);
-    console.table(atleta);
-    console.log(`La Atleta CAMPEONA es ${nombre[mayori]} con una marca de salto de ${mayors}`);
-    for (let i = 0; i < salto.length; i++) {
-        if (salto[i]>15.50){
-            console.log(`La Atleta que rompio el record es ${nombre[i]} GANA 500 MILLONES!`);
-        };
-    }
-};
+let numeros = [];
+let numero = 1000000;
+
+while(numero != 0){
+    numero = Number(prompt("Ingrese un número:"));
+    numeros.push(numero);
+}
+    
+console.log(numeros);
+console.log(`La suma es ${numeros.reduce((previous, current) => current += previous)}`);
+console.log(`El promedio es ${numeros.reduce((previous, current) => current += previous)/numeros.length}`);
+console.log(`Hay ${numeros.length} números`);
+console.log(`El número mayor es ${Math.max(...numeros)}`);
+console.log(`El número menor es ${Math.min(...numeros)}`);
