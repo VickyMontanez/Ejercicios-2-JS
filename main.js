@@ -1,12 +1,29 @@
 // Taller JavaScript 2
-// 8.Programa que Ingrese por teclado: a. el valor del lado de un cuadrado para mostrar por pantalla el perímetro del mismo b. la base y la altura de un rectángulo para mostrar el área del mismo
-let lado;
-let base;
-let altura;
+/* 9.
+N atletas han pasado a finales en salto triple en los juegos
+olímpicos femenino de 2022. Diseñe un programa que pida por
+teclado los nombres de cada atleta finalista y a su vez, sus
+marcas del salto en metros. Informar el nombre de la atleta
+campeona que se quede con la medalla de oro y si rompió
+récord, reportar el pago que será de 500 millones. El récord
+esta en 15,50 metros. */
 
-lado = (Number(prompt("¿Cuál es el valor del lado del cuadrado?")));
-base = (Number(prompt("¿Cuál es el valor de la base del rectángulo?")));
-altura = (Number(prompt("¿Cuál es el valor de la altura del rectángulo?")));
-console.log("El perimetro del cuadrado es = ", (lado*4));
-console.log("El área del rectangulo es = ", (base*altura));
-
+let nombre = [];
+let salto = [];
+let atleta = {Atleta: nombre, Marca: salto};
+function atletas(){
+    let text = "¿Deseas agregar alguna Atleta?";
+    while (confirm(text) == true){
+        nombre.push(prompt("¿Cuál es el nombre del Atleta?"));
+        salto.push(Number(prompt("¿Cuál fue su marca de salto?")));
+    };
+    let mayori = salto.indexOf(Math.max(...salto));
+    let mayors = Math.max(...salto);
+    console.table(atleta);
+    console.log(`La Atleta CAMPEONA es ${nombre[mayori]} con una marca de salto de ${mayors}`);
+    for (let i = 0; i < salto.length; i++) {
+        if (salto[i]>15.50){
+            console.log(`La Atleta que rompio el record es ${nombre[i]} GANA 500 MILLONES!`);
+        };
+    }
+};
